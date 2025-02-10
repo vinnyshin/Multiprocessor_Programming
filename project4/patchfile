@@ -1,0 +1,62 @@
+diff --git a/src/backend/access/transam/xlog.c b/src/backend/access/transam/xlog.c
+index 248a40e..815ab78 100644
+--- a/src/backend/access/transam/xlog.c
++++ b/src/backend/access/transam/xlog.c
+@@ -367,11 +367,18 @@ typedef struct XLogwrtResult
+  * records.  Tracking the WAL activity directly in WALInsertLock has the
+  * advantage of not needing any additional locks to update the value.
+  */
++
++typedef enum Color {Black, White} Color;
++
+ typedef struct
+ {
+ 	LWLock		lock;
+ 	XLogRecPtr	insertingAt;
+ 	XLogRecPtr	lastImportantAt;
++	
++	Color flag;
++	XLogRecPtr startPos;
++	XLogRecPtr endPos;
+ } WALInsertLock;
+ 
+ /*
+@@ -885,6 +892,7 @@ XLogInsertRecord(XLogRecData *rdata,
+ 	/*
+ 	 * Done! Let others know that we're finished.
+ 	 */
++	WALInsertLocks[MyLockNo].l.flag = White;
+ 	WALInsertLockRelease();
+ 
+ 	END_CRIT_SECTION();
+@@ -1071,6 +1079,10 @@ ReserveXLogInsertLocation(int size, XLogRecPtr *StartPos, XLogRecPtr *EndPos,
+ 
+ 	SpinLockRelease(&Insert->insertpos_lck);
+ 
++	WALInsertLocks[MyLockNo].l.startPos = startbytepos;
++	WALInsertLocks[MyLockNo].l.endPos = endbytepos;
++	WALInsertLocks[MyLockNo].l.flag = Black;
++
+ 	*StartPos = XLogBytePosToRecPtr(startbytepos);
+ 	*EndPos = XLogBytePosToEndRecPtr(endbytepos);
+ 	*PrevPtr = XLogBytePosToRecPtr(prevbytepos);
+@@ -2733,6 +2745,19 @@ XLogBackgroundFlush(void)
+ 		flexible = false;		/* ensure it all gets written */
+ 	}
+ 
++	XLogRecPtr RLB = UINT64_MAX;
++	XLogRecPtr cutoff = WriteRqst.Write;
++
++	for (size_t i = 0; i < NUM_XLOGINSERT_LOCKS; ++i) {
++		if (WALInsertLocks[i].l.flag == Black) {
++			RLB = Min(WALInsertLocks[i].l.startPos, RLB);
++		} else if (WALInsertLocks[i].l.flag == White) {
++			RLB = Min(Max(cutoff, WALInsertLocks[i].l.endPos), RLB);
++		}
++	}
++
++	WriteRqst.Write = RLB;
++
+ 	/*
+ 	 * If already known flushed, we're done. Just need to check if we are
+ 	 * holding an open file handle to a logfile that's no longer in use,
