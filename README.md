@@ -2,6 +2,7 @@
 
 ## [1. Parallel Join Processing](https://github.com/vinnyshin/Multiprocessor_Programming/tree/main/project1/performance%20result)
 This project enhances the performance of sequential join processing by introducing Inter-query and Intra-query parallelism strategies. By implementing these optimizations, the execution time was reduced from 193.8 seconds to 109 seconds, achieving a 43.8% performance improvement.
+Unfortunately, the design document and analysis document were lost due to a data failure on the school's GitLab server. They will be rewritten soon.
 
 ## [2. Atomic snapshot](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project2/documents/Atomic%20snapshot.md)
 This project implements a wait-free atomic snapshot algorithm based on the approach described in The Art of Multiprocessor Programming. The implementation ensures a highly efficient snapshot mechanism that prevents blocking and improves system responsiveness.
