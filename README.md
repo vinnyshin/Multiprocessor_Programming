@@ -1,6 +1,6 @@
 # Multiprocessor Programming
 
-## [1. Parallel Join Processing](https://github.com/vinnyshin/Multiprocessor_Programming/tree/main/project1/performance%20result)
+## [1. Parallel Join Processing](https://github.com/vinnyshin/Multiprocessor_Programming/tree/main/project1)
 This project enhances the performance of sequential join processing by introducing Inter-query and Intra-query parallelism strategies. By implementing these optimizations, the execution time was reduced from 193.8 seconds to 109 seconds, achieving a 43.8% performance improvement.
 Unfortunately, the design document and analysis document were lost due to a data failure on the school's GitLab server.
 
