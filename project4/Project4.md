@@ -13,14 +13,14 @@ Modern database systems still suffer performance bottlenecks owing to database l
 Border-Collie addresses the logging bottleneck based on a wait-free, read-optimal algorithm that scales the performance of logging better than state-of-the-art techniques.
 
 
+![Lecture12-advanced_logging_algorithm_19](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project4/Lecture12-advanced_logging_algorithm_19.png)
 
-![Lecture12-advanced_logging_algorithm_19](/Users/vinny/Desktop/Lecture12-advanced_logging_algorithm_19.png)
+
 
 Border-Collie gives reserved log buffer space using an atomic fetch-and-add instruction to each transaction so that they can make concurrent write on the central log buffer.
 
 
-
-![Lecture12-advanced_logging_algorithm_20](/Users/vinny/Desktop/Lecture12-advanced_logging_algorithm_20.png)
+![Lecture12-advanced_logging_algorithm_20](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project4/Lecture12-advanced_logging_algorithm_20.png)
 
 Border-Collie then flushes the central log buffer to the Recoverable Logging Boundary (RLB).
 
@@ -28,12 +28,11 @@ RLB is the maximum boundary that we can guarantee to fully recover when the data
 
 Border-Collie finds stragglers by getting the color of the flag.
 
-![](/Users/vinny/Desktop/Lecture12-advanced_logging_algorithm_89.png)
+![Lecture12-advanced_logging_algorithm_89](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project4/Lecture12-advanced_logging_algorithm_89.png)
 
-![Lecture12-advanced_logging_algorithm_90](/Users/vinny/Desktop/Lecture12-advanced_logging_algorithm_90.png)
+![Lecture12-advanced_logging_algorithm_90](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project4/Lecture12-advanced_logging_algorithm_90.png)
 
-![Lecture12-advanced_logging_algorithm_91](/Users/vinny/Desktop/Lecture12-advanced_logging_algorithm_91.png)
-
+![Lecture12-advanced_logging_algorithm_91](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project4/Lecture12-advanced_logging_algorithm_91.png)
 
 
 ## Design
