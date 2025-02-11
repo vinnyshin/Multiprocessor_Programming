@@ -261,14 +261,13 @@ col:
 # Discussion
 
 ### Test 1
-![test1](uploads/3b29e5c4bc51b427a114f90263695038/test1.png)
+![test1](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project2/results/test1.png)
 
 ### Test 2
-![test2](uploads/66246ee6ed3dd18996f905375041a95b/test2.png)
+![test2](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project2/results/test2.png)
 
 ### Test 3
-![test3](uploads/738704808c08dd44c29387b711a99200/test3.png)
-
+![test3](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project2/results/test3.png)
 
 
 I analyzed the performance relationship between the number of threads and update counts.
