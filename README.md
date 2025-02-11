@@ -6,7 +6,7 @@ This project enhances the performance of sequential join processing by introduci
 ## [2. Atomic snapshot](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project2/documents/Atomic%20snapshot.md)
 This project implements a wait-free atomic snapshot algorithm based on the approach described in The Art of Multiprocessor Programming. The implementation ensures a highly efficient snapshot mechanism that prevents blocking and improves system responsiveness.
 
-## [3. Improe the BW-Tree](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project3/documents/milestone%203.md)
+## [3. Improve the BW-Tree](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project3/documents/milestone%203.md)
 This project involves analyzing the open-source BW-Tree and identifying performance bottlenecks. By diagnosing critical issues and validating their impact, the project introduces improvements to enhance the tree’s efficiency and concurrency management.
 
 ## [4. Border-collie on PostgreSQL](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project4/Project4.md)
