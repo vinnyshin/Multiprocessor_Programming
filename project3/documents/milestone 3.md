@@ -204,8 +204,7 @@ Because random numbers drawn from skewed distribution in a row are likely to be 
 By introducing lock based set in which the critical section is small, we can batch the operations in one piece.
 
 
-
-![atomic_set.drawio__1_](uploads/60190b41bcb6cf3d9de702405c845fac/atomic_set.drawio__1_.png)
+![atomic_set.drawio__1_](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project3/documents/milestone_images/atomic_set.drawio.png)
 
 We can make one single shared batch set and make a dedicated thread to process it.
 Or like we did in the LRU cache, make the batch for each thread and process it with each thread so that we can avoid contention.
