@@ -34,7 +34,7 @@ Set insert as a multi-value insertion to mimic an update operation.
 
 Samples: 14K of event 'cycles', Event count (approx.): 6,652,138,668
 
-![Screenshot_2022-11-12_at_6.00.01_PM](uploads/29a8e6d041d2331cb58a1f98e86ed3fe/Screenshot_2022-11-12_at_6.00.01_PM.png)
+![Screenshot_2022-11-12_at_6.00.01_PM](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project3/documents/milestone_images/Screenshot%202022-11-12%20at%206.00.01%20PM.png)
 
 | Field                       | Output                |
 | --------------------------- | --------------------- |
@@ -59,7 +59,7 @@ In the Insertion operation Traverse function was the most frequently called func
 
 Samples: 7M of event 'cycles', Event count (approx.): 4284,866,686,233
 
-![Screenshot_2022-11-12_at_5.57.53_PM](uploads/6a8676ea6c8aea677406969fdca11dc9/Screenshot_2022-11-12_at_5.57.53_PM.png)
+![Screenshot_2022-11-12_at_5.57.53_PM](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project3/documents/milestone_images/Screenshot%202022-11-12%20at%205.57.53%20PM.png)
 
 | Field                       | Output             |
 | --------------------------- | ------------------ |
@@ -87,7 +87,7 @@ it's because the Skewed distribution increased the possibility of an update oper
 
 ### perf c2c performance evaluation
 
-| ![Screenshot_2022-11-12_at_6.15.27_PM](uploads/e5f0d4b6534f0ece5ed0328e4f22f77e/Screenshot_2022-11-12_at_6.15.27_PM.png) | ![Screenshot_2022-11-12_at_6.06.45_PM](uploads/a9e85753cc620f015067d103df6863ba/Screenshot_2022-11-12_at_6.06.45_PM.png) |
+| ![Screenshot_2022-11-12_at_6.15.27_PM](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project3/documents/milestone_images/Screenshot%202022-11-12%20at%206.15.27%20PM.png) | ![Screenshot_2022-11-12_at_6.06.45_PM](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project3/documents/milestone_images/Screenshot%202022-11-12%20at%206.06.45%20PM.png) |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |                           Uniform                            |                            Skewed                            |
 
@@ -146,7 +146,7 @@ From the small experiment, I found that Zipf distribution mostly gives us low de
 
 With this fact, I introduce another solution the index-offsetted table.
 
-![offset_table.drawio](uploads/a8f75a2da07159e910456288a3b20f57/offset_table.drawio.png)
+![offset_table.drawio](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project3/documents/milestone_images/offset_table.drawio.png)
 
 
 The index-offsetted table reorders logical addresses so that low logical addresses can be disjoint.
@@ -171,9 +171,7 @@ The cache consist of the logical address of the given key, and key value.
 
 - LRU cache example
 
-![milestone.drawio](uploads/4c58d78b537de2c8e55934acbe6de2f2/milestone.drawio.png)
-
-
+![milestone.drawio](https://github.com/vinnyshin/Multiprocessor_Programming/blob/main/project3/documents/milestone_images/milestone.drawio.png)
 
 If the insert operation is performed it will look up the LRU cache and try to find the given key.
 If the given key does not exist on the cache then it will traverse and find the target node.
@@ -204,6 +202,8 @@ Perform the batch update with the same key.
 Because random numbers drawn from skewed distribution in a row are likely to be the same numbers if we batch the update for the same number and just perform one single traverse. we can successfully reduce the total number of traverse function calls.
 
 By introducing lock based set in which the critical section is small, we can batch the operations in one piece.
+
+
 
 ![atomic_set.drawio__1_](uploads/60190b41bcb6cf3d9de702405c845fac/atomic_set.drawio__1_.png)
 
